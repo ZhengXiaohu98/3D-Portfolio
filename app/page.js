@@ -2,8 +2,7 @@
 import { Canvas } from '@react-three/fiber';
 import { Suspense, useState, useEffect } from "react";
 import { IntroRobot, SpaceModel, LightCenter } from './models';
-import { IntroBox, ExperienceTimeline, ContactForm, CustomAlert, LightSwitch } from './components';
-
+import { IntroBox, ExperienceTimeline, ContactForm, CustomAlert, LightSwitch, InitLoader } from './components';
 
 export default function Home() {
 
@@ -78,15 +77,13 @@ export default function Home() {
     };
   }, [isViewing, isHovered]);
 
-
-
   return (
     <>
       <main className="flex flex-col">
-        {/* 3D world/scene */}
-        <div className='fixed top-0 left-0 w-screen h-screen'>
-          <Canvas camera={{ fov: 75, near: 0.1, far: 1000, position: [0, 2.6, 3.2] }} >
-            <Suspense fallback={null}>
+        <Suspense fallback={<InitLoader />}>
+          {/* 3D world/scene */}
+          <div className='fixed top-0 left-0 w-screen h-screen'>
+            <Canvas camera={{ fov: 75, near: 0.1, far: 1000, position: [0, 2.6, 3.2] }} >
               {/* Lights */}
               <ambientLight intensity={1.75} color="white" />
               <directionalLight position={[-1.4, 1.6, .7]} color="white" intensity={2} />
@@ -98,24 +95,24 @@ export default function Home() {
 
               {/* Helper */}
               {/* <axesHelper size={1} scale={2} /> */}
-            </Suspense>
-          </Canvas>
-        </div>
+            </Canvas>
+          </div>
 
-        {/* 2D components */}
-        <IntroBox isViewing={isViewing} setIsViewing={setIsViewing} />
-        <ExperienceTimeline isViewing={isViewing} setIsViewing={setIsViewing} />
-        <ContactForm isViewing={isViewing} setIsViewing={setIsViewing} showAlert={showAlert} />
-        <LightSwitch switchState={switchState} setSwitch={setSwitchState} isViewing={isViewing} />
+          {/* 2D components */}
+          <IntroBox isViewing={isViewing} setIsViewing={setIsViewing} />
+          <ExperienceTimeline isViewing={isViewing} setIsViewing={setIsViewing} />
+          <ContactForm isViewing={isViewing} setIsViewing={setIsViewing} showAlert={showAlert} />
+          <LightSwitch switchState={switchState} setSwitch={setSwitchState} isViewing={isViewing} />
 
-        {/* feedback components */}
-        <CustomAlert alertProp={alertProp} />
+          {/* feedback components */}
+          <CustomAlert alertProp={alertProp} />
 
-        {/* empty div to create height for scrolling */}
-        <div className="h-screen" />
-        <div className="h-screen" />
-        <div className="h-screen" />
-        <div className="h-screen" />
+          {/* empty div to create height for scrolling */}
+          <div className="h-screen" />
+          <div className="h-screen" />
+          <div className="h-screen" />
+          <div className="h-screen" />
+        </Suspense>
       </main>
     </>
 

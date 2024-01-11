@@ -3,5 +3,6 @@ import ExperienceTimeline from './Experience/Experience';
 import ContactForm from "./ContactForm/ContactForm";
 import CustomAlert from "./Common/Alert";
 import LightSwitch from "./LightSwitch/LightSwitch";
+import InitLoader from "./InitLoader/loader";
 
-export { IntroBox, ExperienceTimeline, ContactForm, CustomAlert, LightSwitch};
+export { IntroBox, ExperienceTimeline, ContactForm, CustomAlert, LightSwitch, InitLoader};
