@@ -3,7 +3,6 @@ const LightSwitch = ({ switchState, setSwitch, isViewing }) => {
   const handleClick = (idx) => {
     const newSwitchState = [...switchState];
     newSwitchState[idx] = (switchState[idx] ^ 1);
-    console.log(newSwitchState);
     setSwitch(newSwitchState);
   }
 
