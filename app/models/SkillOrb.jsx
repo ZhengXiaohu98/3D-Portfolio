@@ -37,7 +37,7 @@ const textureLoader = new TextureLoader();
 
 const SkillOrb = () => {
   const modelRef = useRef();
-  const orbRefs = useRef(Array(NUM_ORBS).fill(0).map(() => useRef()));
+  const orbRefs = useRef([useRef(), useRef(), useRef(), useRef(), useRef()]);
   const [orbs, setOrbs] = useState([]);
 
   const renderOrbs = () => {
