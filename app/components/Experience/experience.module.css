@@ -1,0 +1,47 @@
+.expBar {
+  width: 100%;
+  height: 20%;
+  border-radius: 45px;
+  position: absolute;
+  left: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  background: #333;
+  animation: scaleUp 1.2s ease forwards;
+  z-index: 1;
+}
+
+.expBar1 {
+  top: 0;
+  animation-delay: 0s;
+}
+
+.expBar2 {
+  top: 20%;
+  animation-delay: 1s;
+}
+
+.expBar3 {
+  top: 40%;
+  animation-delay: 2s;
+}
+
+.expBar4 {
+  top: 60%;
+  animation-delay: 3s;
+}
+
+.expBar5 {
+  top: 80%;
+  animation-delay: 4s;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scaleY(0);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}

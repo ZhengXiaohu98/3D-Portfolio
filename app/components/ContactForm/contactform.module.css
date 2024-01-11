@@ -1,0 +1,34 @@
+.sendBtn {
+  height: 100%;
+  width: 104px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.sendBtn:hover::before {
+  opacity: 100;
+}
+
+.sendBtn::before {
+  content: '';
+  position: absolute;
+  border-radius: inherit;
+  width: 100%;
+  height: 200%;
+  top: 50%;
+  left: 50%;
+  transform-origin: top left;
+  background-color: #8b5cf6;
+  z-index: -1;
+  opacity: 0;
+  animation: rotate 1.5s ease-in-out infinite;
+  transition: all .5s;
+}
+
+
+@keyframes rotate {
+  to {
+    transform: rotate(1turn);
+  }
+}
